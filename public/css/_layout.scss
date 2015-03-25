@@ -1,0 +1,615 @@
+
+@mixin animation($period) {
+    transition: all $period linear;
+    -moz-transition: all $period linear;
+    -webkit-transition: all $period linear;
+    -o-transition: all $period linear;
+}
+
+@mixin animationNone() {
+    transition: none;
+    -moz-transition: none;
+    -webkit-transition: none;
+    -o-transition: none;
+}
+
+/* $green: #00daba; */
+/* $yellow: #ffab29; */
+
+$green: #00c0b2;
+$gray1: #4d4d4d;
+$gray2: lighten($gray1, 20%);
+$gray3: lighten($gray1, 50%);
+$gray4: #fdfdfd;
+$blueWhite: darken(#f7fcfb, 5%);
+
+$red: #ff6562;
+$yellow: #ffaf00;
+$yellow2: lighten($yellow, 30%);
+$yellow3: lighten($yellow, 25%);
+$blue: #0193d8;
+$shadow: #2d2527;
+
+$centerWidth: 1300px;
+$headerHeight: 65px;
+
+body, div, h1, h2, h3, p, ul, ol, li, img, header, section, aside, footer, button, nav, main, article, input
+{	
+	margin: 0;
+	padding: 0;
+	border: 0;
+	list-style: none;
+}
+
+body {
+	width: 100%;
+	height: 100%;
+	font-family: "Microsoft JhengHei";	
+	overflow-x: hidden;
+	background: $blueWhite;
+}
+
+
+main {
+	width: 100%;
+	height: 100%;	
+	position: relative;
+	z-index: 0;
+	padding-top: $headerHeight + 10;
+	display: block;
+	@extend .boxSizing;
+	@extend .clearfix;
+}
+
+.middleWidth {
+	width: $centerWidth;
+}
+
+.smallMiddleWidth {
+	width: 600px;
+}
+.inline {
+	li {
+		display: inline-block;
+		float: left;
+	}
+}
+
+.hidden {
+	display: none;
+}
+
+
+.center {
+	margin: 0 auto;
+}
+
+.boxSizing {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+.textCenter {
+	width: 100%;
+	text-align: center;
+	display: block;
+}
+
+.link {
+	text-decoration: none;
+	color: $blue;
+}
+
+.noneSelect {
+	-webkit-user-select: none;  /* Chrome all / Safari all */
+	-moz-user-select: none;     /* Firefox all */
+	-ms-user-select: none;      /* IE 10+ */
+	
+	/* No support for these yet, use at own risk */
+	-o-user-select: none;
+	user-select: none;          
+}
+
+.btn {
+	display: inline-block;
+	text-decoration: none;
+	@extend .vertical-middle;
+	padding: 8px 18px 8px 18px;
+	font-size: 16px;
+	cursor: pointer;
+	border-radius: 2px;
+	@extend .noneSelect;
+}
+.btn-red {
+	background: $red;
+	color: white;
+	@include animation(0.1s);
+	&:not([disabled=disabled]):hover {
+		background: darken($red, 5%);
+		@include animation(0.1s);
+	}
+}
+.btn-green {
+	background: $green;
+	color: white;
+	@include animation(0.1s);
+	&:not([disabled=disabled]):hover {
+		background: darken($green, 5%);
+		@include animation(0.1s);
+	}
+}
+.btn-yellow {
+	background: $yellow;
+	color: white;
+	@include animation(0.1s);
+	&:not([disabled=disabled]):hover {
+		background: darken($yellow, 5%);
+		@include animation(0.1s);
+	}
+}
+.btn-yellow2 {
+	background: $yellow3;
+	color: white;
+	@include animation(0.1s);
+	&:not([disabled=disabled]):hover {
+		background: darken($yellow3, 5%);
+		@include animation(0.1s);
+	}
+}
+.btn-white {
+	background: white;
+	color: $gray1;
+	@include animation(0.1s);
+	&:not([disabled=disabled]):hover {
+		background: darken(white, 5%);
+		@include animation(0.1s);
+	}
+}
+.btn-gray {
+	background: $gray3;
+	color: white;
+	@include animation(0.1s);
+	&:not([disabled=disabled]):hover {
+		background: white;
+		color: $gray1;
+		@include animation(0.1s);
+	}
+}
+.btn-tran {
+	background: rgba(0,0,0,0);
+	color: $gray1;
+	@include animation(0.1s);
+	&:not([disabled=disabled]):hover {
+		color: $green;
+		@include animation(0.1s);
+	}
+}
+.btn-tran2 {
+	background: rgba(0,0,0,0);
+	color: white;
+	@include animation(0.1s);
+	&:not([disabled=disabled]):hover {
+		color: $yellow2;
+		@include animation(0.1s);
+	}
+}
+.btn-circle {
+	border-radius: 50%;
+	padding: 0;	
+}
+
+.btn-delete {
+	@extend .btn-red;
+	@extend .btn-circle;
+	width: 25px;
+	height: 25px;	
+}
+
+.black {
+	color: black;
+}
+.gray {
+	color: $gray1;
+}
+.gray2 {
+	color: $gray2;
+}
+.white {
+	color: white;
+}
+.green {
+	color: $green;
+}
+.red {
+	color: $red;
+}
+.yellow {
+	color: $yellow;
+}
+.yellow3 {
+	color: $yellow3;
+}
+.blue {
+	color: $blue;
+}
+
+.bck-white {
+	background: white;
+}
+.bck-red {
+	background: $red;
+}
+.bck-gray {
+	background: $gray3;
+}
+.bck-gray2 {
+	background: $gray4;	
+}
+.bck-green {
+	background: $green;
+}
+
+.bck-yellow {
+	background: $yellow;
+}
+
+.bck-yellow2 {
+	background: $yellow2;
+}
+
+.title {
+	font-size: 24px;
+	font-weight: normal;
+	line-height: 48px;
+}
+
+.title-l {
+	font-size: 36px;
+	font-weight: normal;
+/* 	line-height: 72px; */
+	text-align: center;
+}
+
+.title-m {
+	font-size: 24px;
+	font-weight: normal;
+/* 	line-height: 48px; */
+	text-align: center;
+}
+
+.title-s {
+	font-weight: normal;
+	font-size: 18px;
+/* 	line-height: 36px; */
+}
+
+.title-padding {
+	padding: 4px;
+}
+
+
+.vertical-middle::before {
+	content: '';
+	display: inline-block;
+	vertical-align: middle;
+	height: 100%;
+}
+
+.clearfix:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+
+.shadow {
+	box-shadow: 0px 3px 8px -4px rgba(0,0,0,0.15);
+}
+.shadow2 {
+	box-shadow: 0px 3px 8px -1px rgba(0,0,0,0.15);
+}
+
+input[type=text], input[type=date], input[type=datetime], input[type=password], textarea {
+	border: none;
+	background: $gray4;
+	font-size: 14px;
+	border-left: 4px solid $green;
+	padding: 5px 10px 5px 10px;
+	outline: none;
+	margin: 3px;
+	resize: none;
+	&:hover {
+		@include animation(0.1s);
+		border-left: 7px solid lighten($green, 5%);	
+		padding-right: 7px;
+	}
+}
+input[disabled=disabled], input:disabled {
+	opacity: 0.5;
+} 
+
+.leftest {
+	margin-left: 20px;
+}
+
+.rightest {
+	margin-right: 20px;
+}
+.rightest-comment {
+	margin-right: 90px;
+}
+
+
+.top-header {
+	width: 100%;
+	height: $headerHeight;
+	
+	border-top: $gray1 5px solid;
+	border-bottom: $green 5px solid;
+	background: rgba(255,255,255, 0.99);
+	
+	position: fixed;
+	top:0;
+	z-index: 1;
+	
+	#logo {
+		float: left;
+		height: 60px;
+		margin-top: 5px;
+		img {			
+			float: left;
+		}
+		div.logo-header {
+			float: left;
+			height: 100%;
+			margin: 7px 0px 0px 5px;
+			h1 {
+				font-size: 19px;
+				font-weight: normal;
+				color: $green;
+				margin-bottom: 2px;
+			}
+			h2 {
+				font-size: 13px;
+				font-weight: lighter;
+				color: $gray1;
+			}		
+		}
+	}	
+	.extendNav, #btns, #profile {
+		float: right;
+		height: 100%;	
+		margin-left: 50px;
+	}
+	.leftBorder{
+		border-left: $gray3 1px solid;
+	}
+	.navBtn {
+		display: inline-block;
+		float: left;
+		height: 100%;
+		color: $gray1;
+		padding: 0px 15px 0px 15px;
+		text-decoration: none;
+		@extend .vertical-middle;
+		&:hover, &.navBtn-focus {
+			color: $yellow;
+		}
+	}
+
+	ul.headerNav {		
+		height: 100%;
+		li {
+			height: 100%;
+		}
+	}
+	#profile {		
+		a.navUser {
+			display: inline-block;
+			float: left;
+			height: 100%;
+			padding: 0px 15px 0px 15px;
+			width: 180px;
+			overflow: hidden;
+			&:hover, &.navBtn-focus {
+				color: $yellow;
+			}
+			img {
+				display: block;
+				float: left;
+				height: 100%;
+			}
+			div {
+				height: 100%;			
+				width: 105px;
+				float: right;
+				white-space: nowrap;
+				vertical-align: middle;
+				@extend .vertical-middle;
+				span {
+					word-break: break-all;
+					white-space: normal;
+					line-height: 15px;
+					display: inline-block;
+					vertical-align: middle;
+					color: $blue;
+					&:hover {
+						color: lighten($blue, 5%);
+					}
+				}
+			}
+		}
+	}
+	
+	.groupNav {
+		display: none;
+	}
+}
+
+@media screen and (max-width: 1010px) {
+    .top-header .extendNav {
+	    display: none;
+    }
+    
+    .top-header .groupHeader {
+	    display: block;
+    }
+    
+    .top-header .groupNav {
+	    height: 100%;
+	    text-align: center;
+	    float: right;
+	    width: 100px;
+	    .listFrame {	    	
+	    	display: inline-block;
+	    	vertical-align: middle;
+	    	cursor: pointer;
+		    font-size: 36px;
+		    width: 50px;
+		    height: 45px;		
+		    line-height: 45px;    
+		    border-radius: 5px;
+	    }
+	    .groupNav-nav {
+		    background: $green;
+		    padding: 10px;
+		    border-radius: 5px;
+		    margin-top: -5px;
+		    border: 2px solid white;
+		    width: 200px;
+		    margin-left: -140px;
+		    a {
+			    color: white;
+			    font-weight: bold;
+			    text-decoration: none;
+				font-size: 24px;
+				&:hover {
+					color: $yellow2;
+				}
+		    }
+	    }
+    }
+}
+
+@media screen and (max-width: 690px) {
+	.top-header .headerNav, #profile {
+		display: none;
+	}
+}
+@media screen and (max-width: 760px) {
+	.guide .guide-frame .guide-double-symbol {
+		display: none;
+	}
+}
+
+.rectangle {
+	width: 20px;
+	height: 20px;
+	border-radius: 2px;
+	background: white;
+	display: inline-block;
+	vertical-align: middle;
+}
+.guide {
+	background: $green;
+	padding-bottom: 5px;
+	width: 100%;
+	
+	.guide-content {
+		height: 100%;
+	}
+	
+	.guide-frame {
+		white-space: nowrap;
+	}
+	
+	.guide-item {
+		margin-left: 10px;
+		display: inline-block;
+		vertical-align: middle;
+		line-height: 34px;
+	}
+	h1 {
+		color: white;
+		font-weight: normal;
+		font-size: 24px;
+		vertical-align: middle;
+		display: inline-block;		
+		margin-left: 5px;
+	}
+	.guide-main {
+		color: $yellow2;
+		font-size: 24px;
+	}
+	.guide-desc {
+		color: white;
+		font-size: 18px;
+	}
+	.guide-desc-right {
+		float: right;
+		height: 100%;
+		@extend .vertical-middle;
+		color: white;		
+	}
+	.guide-btn {
+		float: right;
+		margin-right: 30px;
+		padding: 0 18px 0 18px;
+		.symbol {
+			font-size: 22px;
+		}
+	}
+	.guide-nav {
+		margin-left: 200px;		
+		li {
+			cursor: pointer;
+		}
+		.guide-nav-item {
+			padding: 0 10px 0 10px;
+			&.guide-focus, &:hover {
+				color: $yellow2;
+			}
+		}
+	}
+	.guide-symbol {
+		font-size: 28px;
+		padding: 0 18px 0 18px;
+	}
+	.guide-symbol-add {
+		font-size: 24px;
+	}
+}
+.imgFrame {
+	position: relative;
+	display: inline-block;
+	.imgFrame-img {
+		position: relative;
+	}
+	.imgFrame-btn {
+		position: absolute;
+		left: 0;
+		bottom: 0;
+		opacity: 0.9;
+	}
+}
+
+footer {
+	width: 100%;
+	background: $gray1;
+	text-align: center;
+	padding: 5px 0 5px 0;
+	.desc {
+		color: $gray3;
+		vertical-align: middle;
+	}
+}
+
+.warn {
+	position: absolute;
+	white-space: nowrap;
+	background: white;
+	opacity: 0.9;
+	box-shadow: 0px 3px 8px 0px rgba(255,255,255, 1);
+}

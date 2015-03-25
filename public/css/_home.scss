@@ -1,0 +1,133 @@
+@mixin bigger($scale) {
+	-webkit-transform: scale($scale, $scale);
+    -moz-transform: scale($scale, $scale);
+    -moz-transition-timing-function: ease-out;
+    -moz-transition-duration: 250ms;
+}
+@mixin smaller() {
+	-webkit-transform: scale(1.00, 1.00) rotate(.0deg);
+    -moz-transform: scale(1.00, 1.00) rotate(.0deg);
+    -moz-transition-timing-function: ease-out;
+    -moz-transition-duration: 150ms;
+}
+
+
+.title-underline {
+	border-bottom: 1px lighten($gray1, 50%) solid;
+}
+
+.shadowEffect {
+	background-color: $shadow;
+	cursor: pointer;
+	overflow: hidden;
+	img {
+		opacity: 1;
+		@include animation(0.5s);
+		@include smaller();			
+		
+	}
+	
+	.preview-item-hidden {
+		@include animation(0.2s);
+		opacity: 0;		
+	}
+	
+	&:hover {
+		img {
+			opacity: 0.2;		
+			@include animation(0.5s);				
+			@include bigger(1.03);
+		}
+		.preview-item-hidden {
+			@include animation(0.2s);
+			opacity: 1;
+		}
+	}
+	
+}
+
+#newActivity, #newArticle {
+	width: 100%;
+	@extend .center;
+}
+
+#preview {
+	width: 100%;
+	text-align: center;
+	margin-top: 2px;
+
+	.preview-item {
+		position: relative;
+		display: inline-block;
+		height: 460px;		
+		overflow: hidden;
+		float: left;
+		margin: 0px 1px 0px 1px;
+		
+		img.preview-item-profile {
+			float: left;
+			height: 400px;	
+			width: 400px * 1.618;		
+		}
+		.preview-item-title {
+			float: left;
+			display: block;
+			width: 100%;	
+			height: 58px;	
+			background: white;		
+			color: $gray1;
+			margin-top: 2px;			
+			text-align: left;
+			.link {
+				display: block;
+			}
+			
+			span {
+				display: block;
+				font-size: 15px;	
+				height: 20px;
+				margin: 5px 10px 0px 10px;
+				overflow: hidden;
+			}			
+			time {
+				font-size: 12px;	
+				margin-left: 25px;
+				color: lighten($gray1, 20%);
+			}
+		}
+		.preview-item-hidden {
+			position: absolute;
+			left: 40%;
+			top: 35%;
+			.btn {
+				margin: 0 0 10px 0;
+			}
+		}		
+	}
+}
+
+#welcome {
+	background: $green;
+	width: 100%;
+	color: white;
+	padding: 10px 0px 10px 0px;
+	h1, h2 {
+		font-weight: normal;
+	}
+	h1 {
+		font-size: 24px;
+	}
+	h2 {
+		font-size: 18px;
+		line-height: 36px;
+		text-align: center;
+	}
+	.btn {
+		float: right;
+	}
+}
+@media screen and (max-width: 640px) {
+	#welcome .btn {
+		margin-right: 0;
+	}
+}

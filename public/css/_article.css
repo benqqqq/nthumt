@@ -1,0 +1,11 @@
+.article-main {
+  background: white;
+  width: 100%; }
+  .article-main .article-main-header {
+    height: 80px; }
+    .article-main .article-main-header span {
+      display: inline-block;
+      height: 100%;
+      vertical-align: middle; }
+
+/*# sourceMappingURL=_article.css.map */

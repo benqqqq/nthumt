@@ -1,0 +1,120 @@
+.article-main {
+	width: 100%;
+	margin-top: 5px;
+	
+	.article-main-header {
+		background: white;
+		height: 80px;
+		
+		.article-main-header-item {
+			display: block;
+			height: 100%;
+			font-size: 24px;
+			margin: 0 15px 0 15px;
+			vertical-align: middle;
+			@extend .vertical-middle;
+			
+			&.article-main-header-category {
+				float: left;
+				color: $yellow;				
+			}
+			&.article-main-header-title { 
+				color: $gray1;
+				overflow: hidden;
+				.article-main-header-title-span {
+					display: inline-block;
+					word-break: break-all;
+					white-space: normal;
+					line-height: 36px;
+					display: inline-block;
+					vertical-align: middle;
+				}
+				input {
+					display: inline-block;
+					font-size: 24px;
+					padding: 8px 10px 8px 10px;
+					border: none;
+					width: 100%;
+					margin: 0;
+					@extend .boxSizing;
+				}
+			}
+			&.article-main-header-time {				
+				color: $gray2;
+				font-size: 18px;
+				float: right;
+			}
+		}		
+	}
+	.article-main-content {
+		background: white;
+		.article-main-content-frame {
+			padding: 10px 10px 50px 10px;	
+			word-break: break-all;
+			font-size: 16px;
+		}		
+		textarea {
+			width: 100%;
+			height: 400px;
+			margin: 0;
+			border: none;
+			resize: none;
+			overflow: hidden;
+			font-size: 16px;
+			@extend .boxSizing;			 
+			@include animationNone();
+			&:hover {
+				padding-right: 10px;
+			}
+		}
+	}
+	.article-main-submit {
+		background: white;
+		text-align: center;
+	}
+	.article-main-editTime {
+		background: $gray4;
+		text-align: center;
+		padding: 8px 0 8px 0;
+		color: $gray2;
+	}
+}
+.article-comment {
+	border-left: 3px solid $yellow;
+	margin-bottom: 30px;
+	.media-comment {	
+		margin: 0;
+		width: 100%;
+		input[type=text] {				
+			font-size: 16px;
+			padding-top: 8px;
+			padding-bottom: 8px;
+		}
+		input[type=submit] {
+			float: right;
+			margin: 6px 6px 0 0;
+		}
+	}
+}
+.article-category {
+	ul {
+		li {
+			margin: 5px;
+			display: inline-block;
+		}
+	}
+}
+@media screen and (max-width: 760px) {
+	.article-main .article-main-header {
+		.article-main-header-time {
+			display: none;
+		}
+	}
+}
+@media screen and (max-width: 640px) {
+	.article-main-header, .article-comment {
+		.user img {
+			display: none;
+		}
+	} 
+}
